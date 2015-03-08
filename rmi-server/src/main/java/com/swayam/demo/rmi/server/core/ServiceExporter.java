@@ -57,6 +57,7 @@ public class ServiceExporter implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         Exporter exporter = getExporter();
         Remote exportedService = exporter.export(service);
+        @SuppressWarnings("unused")
         JoinManager joinManager = new JoinManager(exportedService, new Entry[] { new Name(serviceName) },
                 (ServiceID) null, discoveryManager, leaseRenewalManager);
     }
