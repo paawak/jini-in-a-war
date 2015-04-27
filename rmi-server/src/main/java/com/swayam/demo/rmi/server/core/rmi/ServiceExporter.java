@@ -2,18 +2,13 @@ package com.swayam.demo.rmi.server.core.rmi;
 
 import java.rmi.Remote;
 
-import javax.net.ServerSocketFactory;
-import javax.net.SocketFactory;
-
 import net.jini.core.entry.Entry;
 import net.jini.core.lookup.ServiceID;
 import net.jini.discovery.DiscoveryManagement;
 import net.jini.export.Exporter;
 import net.jini.id.Uuid;
 import net.jini.id.UuidFactory;
-import net.jini.jeri.BasicILFactory;
 import net.jini.jeri.BasicJeriExporter;
-import net.jini.jeri.http.HttpServerEndpoint;
 import net.jini.lease.LeaseRenewalManager;
 import net.jini.lookup.JoinManager;
 import net.jini.lookup.entry.Name;
@@ -22,11 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
-import com.swayam.demo.rmi.server.core.jini.http.HttpBasedILFactory;
-import com.swayam.demo.rmi.server.core.jini.http.HttpServerEndpoint2;
 import com.swayam.demo.rmi.server.core.jini.servlet.ServletBasedILFactory;
 import com.swayam.demo.rmi.server.core.jini.servlet.ServletBasedServerEndpoint;
-import com.swayam.demo.rmi.shared.jini.http.HttpSocketFactory;
 
 public class ServiceExporter implements InitializingBean {
 
@@ -85,23 +77,6 @@ public class ServiceExporter implements InitializingBean {
     }
 
     private Exporter getExporter() {
-        if (false) {
-            return getDefultExporter();
-        } else {
-            return getCustomExporter();
-        }
-    }
-
-    private Exporter getDefultExporter() {
-        SocketFactory socketFactory = new HttpSocketFactory();
-        ServerSocketFactory serverSocketFactory = ServerSocketFactory.getDefault();
-        return new BasicJeriExporter(HttpServerEndpoint.getInstance("localhost", 0, socketFactory, serverSocketFactory), new BasicILFactory());
-    }
-
-    private Exporter getCustomExporter() {
-        if (false) {
-            return new BasicJeriExporter(HttpServerEndpoint2.getInstance("localhost", 8899), new HttpBasedILFactory());
-        }
         return new BasicJeriExporter(new ServletBasedServerEndpoint(SERVER_URL), new ServletBasedILFactory(SERVER_URL + REMOTE_METHOD_INVOCATION_URI));
     }
 
