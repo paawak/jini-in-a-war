@@ -9,6 +9,7 @@ import net.jini.jeri.RequestDispatcher;
 import net.jini.jeri.ServerEndpoint;
 
 import com.swayam.demo.rmi.shared.jini.servlet.ServletBasedEndpoint;
+import com.swayam.demo.rmi.shared.jini.servlet.ServletInboundRequest;
 
 public class ServletBasedServerEndpoint implements ServerEndpoint {
 
@@ -30,8 +31,9 @@ public class ServletBasedServerEndpoint implements ServerEndpoint {
             @Override
             public ListenHandle listen(RequestDispatcher requestDispatcher) throws IOException {
 
-                // requestDispatcher.dispatch(new
-                // ServletInboundRequest(serverUrl));
+                if (false) {
+                    requestDispatcher.dispatch(new ServletInboundRequest(serverUrl));
+                }
 
                 return new ListenHandle() {
 

@@ -34,8 +34,11 @@ public class ServletBasedInvocationHandler extends BasicInvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         LOGGER.info("************** invoking proxy");
-        return invokeRemoteMethod(proxy, method, args);
-        // return super.invoke(proxy, method, args);
+        if (true) {
+            return invokeRemoteMethod(proxy, method, args);
+        } else {
+            return super.invoke(proxy, method, args);
+        }
     }
 
     private Object invokeRemoteMethod(Object proxy, Method method, Object[] args) throws IOException, ClassNotFoundException {
