@@ -77,7 +77,7 @@ public class ServiceExporter implements InitializingBean {
     }
 
     private Exporter getExporter() {
-        return new BasicJeriExporter(new ServletBasedServerEndpoint(SERVER_URL), new ServletBasedILFactory(SERVER_URL + REMOTE_METHOD_INVOCATION_URI));
+        return new BasicJeriExporter(new ServletBasedServerEndpoint(), new ServletBasedILFactory(SERVER_URL + REMOTE_METHOD_INVOCATION_URI));
     }
 
 }
