@@ -1,5 +1,7 @@
 package com.swayam.demo.rmi.server.core.rmi;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.CountDownLatch;
 
 import org.slf4j.Logger;
@@ -40,8 +42,8 @@ public class SpringNonSecureRmiServer {
 
 	@Override
 	public void run() {
-	    String policyFilePath = SpringNonSecureRmiServer.class.getResource(
-		    "/policy.all").getFile();
+	    String policyFilePath = System.getProperty("user.home")
+		    + "/jini/policy.all";
 
 	    LOG.info("Starting with the policy file {}", policyFilePath);
 
@@ -57,9 +59,14 @@ public class SpringNonSecureRmiServer {
 	    // throw new RuntimeException(e);
 	    // }
 
-	    ServiceStarter.main(new ReggieStarterConfiguration(
-		    SpringNonSecureRmiServer.class
-			    .getResource("/jeri-reggie.config")));
+	    try {
+		ServiceStarter
+			.main(new ReggieStarterConfiguration(
+				new URL(
+					"file://D:/personal/code/jini-in-a-war/jini-in-a-war/jini-server/src/main/resources/jeri-reggie.config")));
+	    } catch (MalformedURLException e) {
+		throw new RuntimeException(e);
+	    }
 
 	    try {
 		Thread.sleep(1_000);
