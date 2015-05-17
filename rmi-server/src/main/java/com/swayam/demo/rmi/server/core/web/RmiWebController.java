@@ -36,7 +36,7 @@ public class RmiWebController implements ApplicationContextAware {
 
     @RequestMapping(value = ServiceExporter.REMOTE_METHOD_INVOCATION_URI)
     public void handleRemoteMethodInvocation(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        LOG.info("reading input parameters...");
+        LOG.debug("reading input parameters...");
         Object result;
         ClassLoader cl = Thread.currentThread().getContextClassLoader();
         try (MarshalInputStream mis = new MarshalInputStream(request.getInputStream(), cl, false, cl, Collections.emptyList());) {
@@ -46,11 +46,11 @@ public class RmiWebController implements ApplicationContextAware {
             Method method = getMethod(implClass, methodHash);
             Object[] args = unmarshalArguments(method, mis);
             Object remoteImpl = applicationContext.getBean(implClass);
-            LOG.info("invoking remote method...");
+            LOG.debug("invoking remote method...");
             result = method.invoke(remoteImpl, args);
         }
 
-        LOG.info("writing results...");
+        LOG.debug("writing results...");
         try (MarshalOutputStream mos = new MarshalOutputStream(response.getOutputStream(), Collections.emptyList());) {
             mos.writeObject(result);
             mos.flush();
