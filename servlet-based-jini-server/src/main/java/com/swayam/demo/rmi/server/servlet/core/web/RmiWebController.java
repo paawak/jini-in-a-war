@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.core.web;
+package com.swayam.demo.rmi.server.servlet.core.web;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -20,7 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sun.jini.jeri.internal.runtime.Util;
-import com.swayam.demo.rmi.server.core.rmi.ServiceExporter;
+import com.swayam.demo.rmi.server.servlet.core.rmi.ServiceExporter;
 
 @Controller
 public class RmiWebController implements ApplicationContextAware {

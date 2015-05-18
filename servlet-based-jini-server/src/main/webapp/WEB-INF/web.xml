@@ -17,7 +17,7 @@
 	<description>RMI Web Server</description>
 	<display-name>RMI Web Server</display-name>
 	<listener>
-		<listener-class>com.swayam.demo.rmi.server.core.web.RmiServletContextAttributeListener</listener-class>
+		<listener-class>com.swayam.demo.rmi.server.servlet.core.web.RmiServletContextAttributeListener</listener-class>
 	</listener>
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>

@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.core.jini.servlet;
+package com.swayam.demo.rmi.server.servlet.core.jini.servlet;
 
 import net.jini.core.constraint.InvocationConstraints;
 import net.jini.jeri.Endpoint;

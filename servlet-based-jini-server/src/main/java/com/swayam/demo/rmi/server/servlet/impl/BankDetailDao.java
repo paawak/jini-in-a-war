@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.impl;
+package com.swayam.demo.rmi.server.servlet.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

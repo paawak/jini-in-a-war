@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.core.rmi;
+package com.swayam.demo.rmi.server.servlet.core.rmi;
 
 import java.rmi.Remote;
 
@@ -17,8 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
-import com.swayam.demo.rmi.server.core.jini.servlet.ServletBasedILFactory;
-import com.swayam.demo.rmi.server.core.jini.servlet.ServletBasedServerEndpoint;
+import com.swayam.demo.rmi.server.servlet.core.jini.servlet.ServletBasedILFactory;
+import com.swayam.demo.rmi.server.servlet.core.jini.servlet.ServletBasedServerEndpoint;
 
 public class ServiceExporter implements InitializingBean {
 

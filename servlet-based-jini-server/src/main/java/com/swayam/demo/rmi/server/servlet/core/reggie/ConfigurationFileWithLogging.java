@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.core.reggie;
+package com.swayam.demo.rmi.server.servlet.core.reggie;
 
 import java.net.URL;
 

@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.core.web;
+package com.swayam.demo.rmi.server.servlet.core.web;
 
 import javax.servlet.ServletContextAttributeEvent;
 import javax.servlet.ServletContextAttributeListener;
@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.sun.jini.start.ServiceStarter;
-import com.swayam.demo.rmi.server.core.reggie.ReggieStarterConfiguration;
+import com.swayam.demo.rmi.server.servlet.core.reggie.ReggieStarterConfiguration;
 
 public class RmiServletContextAttributeListener implements ServletContextAttributeListener {
 

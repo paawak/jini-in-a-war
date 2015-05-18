@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.core.jini.servlet;
+package com.swayam.demo.rmi.server.servlet.core.jini.servlet;
 
 import java.lang.reflect.InvocationHandler;
 import java.rmi.Remote;
@@ -10,7 +10,7 @@ import net.jini.jeri.InvocationDispatcher;
 import net.jini.jeri.ObjectEndpoint;
 import net.jini.jeri.ServerCapabilities;
 
-import com.swayam.demo.rmi.server.core.jini.BasicInvocationDispatcherWithLogging;
+import com.swayam.demo.rmi.server.servlet.core.jini.BasicInvocationDispatcherWithLogging;
 import com.swayam.demo.rmi.shared.jini.servlet.ServletBasedInvocationHandler;
 
 public class ServletBasedILFactory extends BasicILFactory {
