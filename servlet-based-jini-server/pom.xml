@@ -2,13 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.swayam.demo.jini.unsecure.http</groupId>
-	<artifactId>rmi-server</artifactId>
+	<artifactId>servlet-based-jini-server</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>RmiServer</name>
+	<name>ServletBasedJiniServer</name>
 	<description>
-	This is a non secured implementation of a Jini server. This has only a small no. of functionalities. It is spring-ified. 
-	It is a simple load balancer
+	This is a non secured implementation of a Jini server. This communicates over http, via a Servlet, and runs inside a WebServer.
 	</description>
 	<build>
 		<finalName>${project.name}</finalName>
@@ -142,61 +141,6 @@
 		</dependency>
 		<!-- END: web dependencies -->
 	</dependencies>
-	<profiles>
-		<profile>
-			<id>assemble</id>
-			<build>
-				<plugins>
-					<!-- creates a distribution with all dependencies to run the Rmi Server -->
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>appassembler-maven-plugin</artifactId>
-						<version>1.8.1</version>
-						<configuration>
-							<repositoryLayout>flat</repositoryLayout>
-							<repositoryName>lib</repositoryName>
-							<showConsoleWindow>true</showConsoleWindow>
-							<platforms>
-								<platform>unix</platform>
-							</platforms>
-							<programs>
-								<program>
-									<mainClass>com.swayam.demo.rmi.server.core.SpringNonSecureRmiServer</mainClass>
-									<name>run_rmi_server</name>
-								</program>
-							</programs>
-						</configuration>
-						<executions>
-							<execution>
-								<phase>package</phase>
-								<goals>
-									<goal>assemble</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<!-- zips the jars and .sh scripts created into single file -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-assembly-plugin</artifactId>
-						<version>2.4</version>
-						<configuration>
-							<descriptor>src/assembly/rmi-server-assembly-descriptor.xml</descriptor>
-						</configuration>
-						<executions>
-							<execution>
-								<id>assemble-all</id>
-								<phase>package</phase>
-								<goals>
-									<goal>single</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<slf4j.version>1.7.10</slf4j.version>

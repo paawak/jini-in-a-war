@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.swayam.demo.jini.unsecure.http</groupId>
-	<artifactId>jini-server</artifactId>
+	<artifactId>tcp-based-jini-server</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>JiniServer</name>
+	<name>TCPBasedJiniServer</name>
 	<description>
-	This is a non secured implementation of a Jini server. This has only a small no. of functionalities. It is spring-ified. 
-	It is a simple load balancer
+	This is a non secured implementation of a Jini server. This has only a small no. of functionalities. It is spring-ified. Communication
+	happens over TCP.
 	</description>
 	<build>
 		<finalName>${project.name}</finalName>
