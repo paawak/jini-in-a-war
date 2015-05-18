@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.core.reggie;
+package com.swayam.demo.rmi.server.tcp.core.reggie;
 
 import java.net.URL;
 import java.util.Optional;

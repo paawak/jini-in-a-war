@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.impl;
+package com.swayam.demo.rmi.server.tcp.impl;
 
 import java.sql.SQLException;
 import java.util.List;

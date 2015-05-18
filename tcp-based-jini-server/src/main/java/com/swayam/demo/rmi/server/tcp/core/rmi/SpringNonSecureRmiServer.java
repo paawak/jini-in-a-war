@@ -1,4 +1,4 @@
-package com.swayam.demo.rmi.server.core.rmi;
+package com.swayam.demo.rmi.server.tcp.core.rmi;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sun.jini.start.ServiceStarter;
-import com.swayam.demo.rmi.server.core.reggie.ReggieStarterConfiguration;
+import com.swayam.demo.rmi.server.tcp.core.reggie.ReggieStarterConfiguration;
 
 public class SpringNonSecureRmiServer {
 
